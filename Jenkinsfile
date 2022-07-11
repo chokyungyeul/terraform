@@ -1,57 +1,49 @@
+
 pipeline {
     agent any
 
     parameters {
-        string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
-        string(name: 'version', defaultValue: '', description: 'Version variable to pass to Terraform')
+        string(name: 'environment', defaultValue: 'terraform', description: 'Workspace/environment file to use for deployment')
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     }
-    
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-        TF_IN_AUTOMATION      = '1'
+
+        environment {
+        AZURE_CLIENT_ID     = credentials('fbf9bfce-a44e-4632-a9bc-4a1c4280ea08')
+       AZURE_CLIENT_SECRET = credentials('gpI8Q~TobJ735QPBspP4-DmmXRYpzmv0xLFKicts')
+        AZURE_SUBSCRIPTION_ID = credentials('a30376d1-42be-4a6d-a201-8254f23c7064')
+        AZURE_TENANT_ID = credentials('785087ba-1e72-4e7d-b1d1-4a9639137a66')
     }
 
     stages {
+
         stage('Plan') {
+
             steps {
-                script {
-                    currentBuild.displayName = params.version
-                }
-                sh 'terraform init -input=false'
-                sh 'terraform workspace select ${environment}'
-                sh "terraform plan -input=false -out tfplan -var 'version=${params.version}' --var-file=environments/${params.environment}.tfvars"
-                sh 'terraform show -no-color tfplan > tfplan.txt'
+                sh 'terraform init -upgrade'
+                sh "terraform validate"
+                sh "terraform plan"
             }
         }
-
         stage('Approval') {
-            when {
-                not {
-                    equals expected: true, actual: params.autoApprove
-                }
-            }
-
-            steps {
-                script {
-                    def plan = readFile 'tfplan.txt'
+           when {
+               not {
+                   equals expected: true, actual: params.autoApprove
+               }
+           }
+           
+           steps {
+               script {
                     input message: "Do you want to apply the plan?",
-                        parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
-                }
-            }
-        }
+                    parameters: [text(name: 'Plan', description: 'Please review the plan')]
+
+               }
+           }
+       }
 
         stage('Apply') {
             steps {
-                sh "terraform apply -input=false tfplan"
+                sh "terraform apply --auto-approve"
             }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: 'tfplan.txt'
         }
     }
 }
