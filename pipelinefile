@@ -22,7 +22,7 @@ stage ('Terraform version') {
   stage ('Terraform init') { 
   steps {
    sh '''
-   cd terraform-test/
+   cd /mnt/c/terraform/terraformTogithub/terraform/
    terraform init
    ''' 
    }
@@ -30,7 +30,7 @@ stage ('Terraform version') {
   stage ('Terraform plan') { 
   steps {
    sh '''
-   cd terraform-test/
+   cd /mnt/c/terraform/terraformTogithub/terraform/
    terraform plan -out=tfplan.out
    terraform show -json tfplan.out
    ''' 
