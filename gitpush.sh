@@ -1,8 +1,4 @@
 
-git config --global user.name "cho"
-git config --global user.email "chokyungyeul@gamil.com"
-git config --global user.password "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"
-
 #gitpush.sh
 Y=$(date +%Y)
 M=$(date +%m)
