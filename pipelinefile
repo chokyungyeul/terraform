@@ -3,12 +3,11 @@ agent any
 tools {
   terraform 'terraform'
 }
-} 
- stages { 
+stages { 
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/chokyungyeul/terraform.git'
+       sh  'git clone https://github.com/UnixArena/terraform-test.git'
       }
       } 
 
@@ -28,7 +27,6 @@ stage ('Terraform version') {
    ''' 
    }
    }
-   
   stage ('Terraform plan') { 
   steps {
    sh '''
@@ -38,19 +36,5 @@ stage ('Terraform version') {
    ''' 
    }
    }
-   
- stage ('Terraform apply') { 
-  steps {
-   sh '''
-   cd terraform-test/
-   terraform apply --auto-approve
-   ''' 
-   }
-        post { 
-        always { 
-            cleanWs()
-         }
-        }
-       }
-  }
-}
+ }
+ }
