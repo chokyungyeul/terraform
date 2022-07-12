@@ -7,7 +7,7 @@ stages {
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/UnixArena/terraform-test.git'
+       sh  'git clone https://github.com/chokyungyeul/terraform.git'
       }
       } 
 
