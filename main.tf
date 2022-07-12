@@ -1,5 +1,5 @@
 module "ResourceGroup" {
-  source = "github.com/chokyungyeul/terraform.git//modules/ResourceGroup?ref=v1.0.3"
+  source = "github.com/chokyungyeul/terraform.git//modules/ResourceGroup?ref=v0.0.85"
   count   = length(var.rg_name)
   rg_name = element(var.rg_name, count.index)
   location = "koreacentral"
