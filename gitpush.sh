@@ -10,7 +10,7 @@ D=$(date +%d)
  
 Ym=$Y-$M
 Ymd=$Y-$M-$D
-GitRep="Azure_infra"
+GitRep="terraform"
  
 HomeDir="/mnt/c/terraform/terraformTogithub"
 GitDir="$HomeDir/$GitRep"
