@@ -4,3 +4,6 @@
 .terraform/*
 *.terraform
 *.terraform/
+terraform.tfstate
+terraform.*
+tfplan.*
