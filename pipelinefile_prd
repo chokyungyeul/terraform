@@ -45,7 +45,7 @@ stage ('Terraform version') {
   steps {
    sh '''
    cd /var/lib/jenkins/workspace/master/terraform/
-   terraform apply
+   terraform apply --auto-approve
    ''' 
    }
     }
