@@ -26,7 +26,7 @@ stage ('Terraform version') {
   steps {
    sh '''
    cd /var/lib/jenkins/workspace/master/terraform/
-   cp /var/lib/jenkins/workspace/terraformtf/prd/terraform.tfstate.backup ./
+   cp /var/lib/jenkins/workspace/terraformtf/prd/terraform.tfstate.backup ./terraform.tfstate
    terraform init
    ''' 
    }

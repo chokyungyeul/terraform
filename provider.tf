@@ -5,6 +5,12 @@ terraform {
       version = ">=3.0.0"
     }
   }
+backend "azurerm" {
+        resource_group_name  = "Jenkins-vm-rg"
+        storage_account_name = "savetfstate"
+        container_name       = "terraform"
+        key                  = "E70Recwzb8Uz5521may0POGbF59FnkoaLL8hgG1eycXap2UmJuOOoZwvzzjO52GtUwrCQQ0HwiDR+AStYRvIPg=="
+    }
 }
 
 # Configure the Microsoft Azure Provider
