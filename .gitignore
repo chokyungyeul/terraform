@@ -1,9 +1,1 @@
 .terraform/
-.terraform.lock.hcl
-.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.13.0/linux_amd64/terraform-provider-azurerm_v3.13.0_x5
-.terraform/*
-*.terraform
-*.terraform/
-terraform.tfstate
-terraform.*
-tfplan.*
