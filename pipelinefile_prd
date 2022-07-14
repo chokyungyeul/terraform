@@ -47,6 +47,7 @@ stage ('Terraform version') {
    sh '''
    cd /var/lib/jenkins/workspace/master/terraform/
    terraform apply --auto-approve
+   cd /var/lib/jenkins/workspace/master/terraform/
    cp ./terraform.tfstate /var/lib/jenkins/workspace/terraformtf/prd/
    ''' 
    
