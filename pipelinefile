@@ -8,7 +8,6 @@ stages {
      steps { 
        cleanWs()
        sh  '''
-	   cd /terraform/dev/
             git clone -b dev --single-branch https://github.com/chokyungyeul/terraform.git
 
             '''
