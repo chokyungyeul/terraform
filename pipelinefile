@@ -33,7 +33,7 @@ stage ('Terraform version') {
   stage ('Terraform plan') { 
   steps {
    sh '''
-   cd/var/lib/jenkins/workspace/dev/terraform/
+   cd /var/lib/jenkins/workspace/dev/terraform/
    terraform plan -out=tfplan.out
    terraform show -json tfplan.out
    ''' 
