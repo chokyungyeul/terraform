@@ -48,11 +48,6 @@ stage ('Terraform version') {
    terraform apply --auto-approve
    ''' 
    }
-#        post { 
-#        always { 
-#           cleanWs()
-#       }
-#     }
-       }
+    }
   }
 }
