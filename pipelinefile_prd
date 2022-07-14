@@ -26,6 +26,7 @@ stage ('Terraform version') {
   steps {
    sh '''
    cd /var/lib/jenkins/workspace/master/terraform/
+   cp /var/lib/jenkins/workspace/terraformtf/prd/terraform.tfstate ./
    terraform init
    ''' 
    }
@@ -47,6 +48,7 @@ stage ('Terraform version') {
    cd /var/lib/jenkins/workspace/master/terraform/
    terraform apply --auto-approve
    ''' 
+   cp ./terraform.tfstate /var/lib/jenkins/workspace/terraformtf/prd/
    }
     }
   }
