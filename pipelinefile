@@ -7,7 +7,10 @@ stages {
    stage ('Checkout Repo') { 
      steps { 
        cleanWs()
-       sh  'git clone https://github.com/chokyungyeul/terraform.git'
+       sh  '''
+            git clone -b dev --single-branch https://github.com/chokyungyeul/terraform.git
+
+            '''
       }
       } 
 
@@ -22,7 +25,7 @@ stage ('Terraform version') {
   stage ('Terraform init') { 
   steps {
    sh '''
-   cd /mnt/c/terraform/terraformTogithub/dev/
+   cd /var/lib/jenkins/workspace/dev/terraform/
    terraform init
    ''' 
    }
@@ -30,7 +33,7 @@ stage ('Terraform version') {
   stage ('Terraform plan') { 
   steps {
    sh '''
-   cd /mnt/c/terraform/terraformTogithub/dev/
+   cd /var/lib/jenkins/workspace/dev/terraform/
    terraform plan -out=tfplan.out
    terraform show -json tfplan.out
    ''' 
