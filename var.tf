@@ -72,6 +72,6 @@ variable "storage_key" {
 }
 
 variable "client_path" {
-  default = "home/azureadmin/service-principal.pfx"
+  default = "/terraform/service-principal.pfx"
   type     = string  
 }
