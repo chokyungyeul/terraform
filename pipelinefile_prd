@@ -27,6 +27,7 @@ stage ('Terraform version') {
    sh '''
    cd /var/lib/jenkins/workspace/master/terraform/
    terraform init
+   az login --service-principal -u "fbf9bfce-a44e-4632-a9bc-4a1c4280ea08" -p "gpI8Q~TobJ735QPBspP4-DmmXRYpzmv0xLFKicts" --tenant "785087ba-1e72-4e7d-b1d1-4a9639137a66"
    ''' 
    }
    }
