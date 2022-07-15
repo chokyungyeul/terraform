@@ -25,11 +25,16 @@ stage ('Terraform version') {
   steps {
    sh '''
    cd /var/lib/jenkins/workspace/master/terraform/
+    export ARM_CLIENT_ID="fbf9bfce-a44e-4632-a9bc-4a1c4280ea08"
+    export ARM_CLIENT_CERTIFICATE_PATH="/home/azureadmin/service-principal.pfx" 
+    export ARM_CLIENT_CERTIFICATE_PASSWORD="Ghksdud@12"
+    export ARM_SUBSCRIPTION_ID="a30376d1-42be-4a6d-a201-8254f23c7064"
+    export ARM_TENANT_ID="785087ba-1e72-4e7d-b1d1-4a9639137a66"
    terraform init
    ''' 
    }
    }
-   
+
   stage ('Terraform plan') { 
   steps {
    sh '''
