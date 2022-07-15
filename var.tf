@@ -29,7 +29,7 @@ variable "adminpw" {
 #rg count
 variable "rg_name" {
   type = list
-  default = ["chotest01-rg","chotest10-rg"]
+  default = ["chotest01-rg","chotest10-rg","chochocho-rg"]
 }
 
 #vm count
