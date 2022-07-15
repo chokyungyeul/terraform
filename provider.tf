@@ -9,7 +9,7 @@ backend "azurerm" {
         resource_group_name  = "Jenkins-vm-rg"
         storage_account_name = "savetfstate"
         container_name       = "terraform"
-        key                  = var.storage_key
+        key                  = "E70Recwzb8Uz5521may0POGbF59FnkoaLL8hgG1eycXap2UmJuOOoZwvzzjO52GtUwrCQQ0HwiDR+AStYRvIPg=="
     }
 }
 
