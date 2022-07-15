@@ -65,3 +65,8 @@ variable "client_secret" {
   default = "gpI8Q~TobJ735QPBspP4-DmmXRYpzmv0xLFKicts"
   type     = string  
 }
+
+variable "storage_key" {
+  default = "E70Recwzb8Uz5521may0POGbF59FnkoaLL8hgG1eycXap2UmJuOOoZwvzzjO52GtUwrCQQ0HwiDR+AStYRvIPg=="
+  type     = string  
+}
